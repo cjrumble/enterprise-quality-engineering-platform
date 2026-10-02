@@ -1,0 +1,8 @@
+[project]
+name = "enterprise-quality-engineering-platform"
+version = "0.1.0"
+dependencies = ["pytest>=8", "playwright>=1.50", "requests>=2.32"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["smoke: fast critical-path tests", "api: API tests", "ui: browser tests"]
+addopts = "-ra"
