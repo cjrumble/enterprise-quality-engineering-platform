@@ -1,27 +1,32 @@
 # Enterprise Quality Engineering Platform
 
-A portfolio-grade Python + Playwright + pytest framework demonstrating UI/API automation, risk-based coverage, reusable fixtures, evidence capture, and CI quality gates.
+A senior-level Python + Playwright + pytest reference framework showing how a Quality Engineering team can design **reusable automation, API/UI coverage, diagnostics, and CI quality gates**.
 
 ## Architecture
-- `tests/ui`: browser workflows
-- `tests/api`: REST contract/smoke tests
-- `pages`: page-object abstractions
-- `api`: API client layer
-- `fixtures`: reusable test data and browser fixtures
-- `.github/workflows`: CI execution
+- Page Objects isolate UI behavior from test intent.
+- HTTP client layer centralizes API transport and timeouts.
+- Configuration supports environment-specific endpoints without changing test code.
+- pytest markers separate UI/API/smoke/external coverage.
+- Quality gates demonstrate release-blocking criteria.
+- GitHub Actions executes the suite across supported Python versions and publishes JUnit evidence.
 
-## Quality strategy
-The framework favors stable user-facing locators, explicit API assertions, negative/boundary coverage, deterministic test data, trace/screenshot capture on failure, and fast feedback in CI.
+## Engineering practices
+- deterministic, readable test intent
+- reusable abstractions instead of duplicated request/browser code
+- explicit timeouts and environment configuration
+- parameterized status/boundary coverage
+- CI test artifacts
+- separation of test strategy, transport, page behavior, and assertions
 
-## Run
+## Run locally
 ```bash
 pip install -r requirements.txt
 playwright install chromium
-pytest -m smoke -v
 pytest -v
 ```
 
-The included demo tests use a public sample site/API and are intentionally safe to run.
+## Portfolio scope
+The external demo endpoints are intentionally non-production and safe for portfolio execution. The architecture can be pointed at an authenticated application under test through environment configuration.
 
 ## Hiring-manager evidence
-This project demonstrates test architecture, automation engineering, API/UI integration, failure diagnostics, CI/CD, and quality-gate thinking rather than a collection of isolated scripts.
+This project demonstrates **automation architecture and engineering judgment**, not a collection of isolated scripts: reusable layers, CI quality gates, diagnostics, maintainability, and risk-oriented coverage.
